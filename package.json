@@ -8,11 +8,7 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "author": {
-    "name": "Tariq",
-    "nickname": "Anonymous",
-    "github": "UchihaDSenju"
-  },
+  "author": "Tariq",
   "license": "ISC",
   "devDependencies": {
     "sass": "^1.59.2",
@@ -23,5 +19,13 @@
     "@dicebear/core": "^5.3.4",
     "html-to-image": "^1.11.11",
     "toastr": "^2.1.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UchihaDSenju/insult-page-2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/UchihaDSenju/insult-page-2/issues"
+  },
+  "homepage": "https://github.com/UchihaDSenju/insult-page-2#readme"
 }
