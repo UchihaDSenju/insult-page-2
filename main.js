@@ -6,7 +6,6 @@ var userName = document.querySelector('.nameInput');
 const insultBtn = document.querySelector('.insultBtn');
 const buttons = document.querySelector('.buttons');
 var users = [];
-console.log(users);
 
 
 if(localStorage.getItem("date") != new Date().getDate()){
@@ -61,7 +60,6 @@ const earring = parseInt(Math.random() * 6);
 // Adding event listener to the userNameInputTag that we ahve created
 userName.addEventListener('keyup', () => {
     inputName = userName.value;
-    console.log(inputName)
     var foundGender = "";
     fetch('https://api.genderize.io/?name=' + inputName)
     .then((res) => res.json())
@@ -146,22 +144,24 @@ function insult(){
         toastr["info"]("Sorry folks but you cannot insult the owner 😜")
         return;
     }
-    const heading = document.querySelector('.heading h1');
-    var insult = document.querySelector('.insult');
-    var insultainer = document.querySelector('.insultainer')
-    buttons.style.display = flag ? 'none' : 'flex' ;
-    heading.innerHTML = userName.value;
-    insultainer.style.display = 'block';
-    userName.style.display = 'none';
-    insultBtn.style.display = 'none';
-    if(users.includes(userName.value.toLowerCase())){
-        insult.innerHTML = "How many times in a day should i insult you ?";
-    }
     else{
-        const num = parseInt(Math.random() * insults.length);
-        insult.innerHTML = insults[num];
-        users.push(userName.value.toLowerCase());
-        localStorage.setItem('users', users);
+        const heading = document.querySelector('.heading h1');
+        var insult = document.querySelector('.insult');
+        var insultainer = document.querySelector('.insultainer')
+        buttons.style.display = 'flex' ;
+        heading.innerHTML = userName.value;
+        insultainer.style.display = 'block';
+        userName.style.display = 'none';
+        insultBtn.style.display = 'none';
+        if(users.includes(userName.value.toLowerCase())){
+            insult.innerHTML = "How many times in a day should i insult you ?";
+        }
+        else{
+            const num = parseInt(Math.random() * insults.length);
+            insult.innerHTML = insults[num];
+            users.push(userName.value.toLowerCase());
+            localStorage.setItem('users', users);
+        }
     }
 }
 
