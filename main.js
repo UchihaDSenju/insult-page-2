@@ -6,16 +6,15 @@ var userName = document.querySelector('.nameInput');
 const insultBtn = document.querySelector('.insultBtn');
 const buttons = document.querySelector('.buttons');
 var users = [];
-if(localStorage.getItem('users')){
-    users = localStorage.getItem('users').split(",");
-}
-let flag = 0;
 console.log(users);
 
 
 if(localStorage.getItem("date") != new Date().getDate()){
     localStorage.clear();
     localStorage.setItem("date", new Date().getDate());
+}
+if(localStorage.getItem('users')){
+    users = localStorage.getItem('users').split(",");
 }
 
 // toaster options
@@ -76,7 +75,6 @@ userName.addEventListener('keyup', () => {
                 alt="avatar"
             />
             `
-            flag = 1;
         }
         else if(inputName.length >= 3){
             insultBtn.style.display = 'inline';
@@ -144,8 +142,7 @@ function insult(){
         toastr["error"]("Please enter a name");
         return;
     }
-    if(flag){
-        flag = 0;
+    if(author.includes(userName.value.toLowerCase().trim())){
         toastr["info"]("Sorry folks but you cannot insult the owner 😜")
         return;
     }
