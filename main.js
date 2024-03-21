@@ -43,7 +43,8 @@ var gender;
 var author = [
     'tariq',
     'mohamed tariq',
-    'mohamed'
+    'mohamed',
+    'allah'
   ]
 
 var urlExtra = 'https://api.dicebear.com/5.x/adventurer/svg?size=200&scale=90&radius=50';
